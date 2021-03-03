@@ -1,10 +1,22 @@
-#!/bin/bash -x
+#!/bin/bash -x 
 
-flipCoin=$((RANDOM%2))
+while [[ $HEAD -ne 21 && $TAIL -ne 21 ]]
+do
+	FlipCoin=$((RANDOM%2))
+	if [ $FlipCoin -eq 1 ]
+	then
+		((HEAD++))
+	else
+		((TAIL++))
+	fi
+done
 
-if [ $flipCoin -eq 1 ]
+if [ $HEAD -eq $TAIL ]
 then
-	echo HEAD
+	echo "IT's A TIE"
+elif [ $HEAD -gt $TAIL ]
+then
+	echo "HEAD WINS BY $(($HEAD-$TAIL))"
 else
-	echo TAIL
+	echo "TAIL WINS BY $(($TAIL-$HEAD))"
 fi
