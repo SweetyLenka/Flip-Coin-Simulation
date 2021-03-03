@@ -13,10 +13,27 @@ done
 
 if [ $HEAD -eq $TAIL ]
 then
-	echo "IT's A TIE"
+	while [[ $(($HEAD-$TAIL)) -lt 2 && $(($TAIL-$HEAD)) -lt 2 ]]
+	do
+		FlipCoin=$((RANDOM%2))
+   	if [ $FlipCoin -eq 0 ]
+   	then
+      	((HEAD++))
+   	else
+      	((TAIL++))
+   	fi
+	done
+	if [ $HEAD -gt $TAIL ]
+	then
+		echo HEAD WINS BY $(($HEAD-$TAIL))
+	else
+		echo TAIL WINS BY $(($TAIL-$HEAD))
+	fi
+
 elif [ $HEAD -gt $TAIL ]
 then
-	echo "HEAD WINS BY $(($HEAD-$TAIL))"
+	echo HEAD WINS BY $(($HEAD-$TAIL))
 else
-	echo "TAIL WINS BY $(($TAIL-$HEAD))"
+	echo TAIL WINS BY $(($TAIL-$HEAD))
 fi
+	
