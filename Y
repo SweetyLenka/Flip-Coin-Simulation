@@ -1,0 +1,19 @@
+  GNU nano 5.4                         FlipCoinSimulator.sh                         Modified
+for((i=0;i<10;i++))
+do
+   flipCoin=$((RANDOM%2))
+
+   if [ $flipCoin -eq 1 ]
+   then
+
+         echo "HEAD HAS WON : $count times"
+
+   elif [ $flipCoin -eq 0 ]
+   then
+         ((count++))
+         echo "TAIL HAS WON : $count times"
+   fi
+done
+
+
+

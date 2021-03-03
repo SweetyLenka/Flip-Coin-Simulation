@@ -1,10 +1,22 @@
-#!/bin/bash -x
+#!/bin/bash -x 
 
-flipCoin=$((RANDOM%2))
+for((i=0;i<10;i++))
+do
+   flipCoin=$((RANDOM%2))
 
-if [ $flipCoin -eq 1 ]
-then
-	echo HEAD
-else
-	echo TAIL
-fi
+   if [ $flipCoin -eq 1 ]
+   then
+			((Head++))
+
+   elif [ $flipCoin -eq 0 ]
+   then
+         ((Tail++))
+         
+   fi
+done
+
+echo "HEAD HAS WON $Head Times "
+echo "TAIL HAS WON $Tail Times"
+
+
+
